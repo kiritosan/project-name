@@ -34,7 +34,7 @@ ${resJsonString}
 `;
 
     // Write the log message to a text file
-    fs.appendFileSync('request_logs.txt', logMessage + '\n');
+    fs.appendFileSync('request_logs.log', logMessage + '\n');
     next();
   }
 }
