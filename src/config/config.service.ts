@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService as NestConfigService } from '@nestjs/config';
 
+interface DatabaseConfig {
+  host: string;
+  port: number;
+}
+
 @Injectable()
 export class ConfigService {
   constructor(private configService: NestConfigService) {}
@@ -10,6 +15,6 @@ export class ConfigService {
   }
 
   printDB() {
-    return this.configService.get<string>('db');
+    return this.configService.get<DatabaseConfig>('db');
   }
 }
