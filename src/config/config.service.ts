@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { ConfigService as NestConfigService } from '@nestjs/config';
 
 @Injectable()
-export class TimeService {
-  constructor(private configService: ConfigService) {}
+export class ConfigService {
+  constructor(private configService: NestConfigService) {}
 
   printDBUser() {
     return this.configService.get<string>('DATABASE_USER');

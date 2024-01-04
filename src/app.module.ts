@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { ExportMessageMiddleware } from './export-message/export-message.middleware';
 import { ConfigModule } from '@nestjs/config';
 import { TimeModule } from './time/time.module';
+import { ConfigModule } from './config/config.module';
+import configuration from 'config/configuration';
 
 @Module({
   imports: [
@@ -15,8 +17,10 @@ import { TimeModule } from './time/time.module';
     ConfigModule.forRoot({
       envFilePath: ['.env.development.local', '.env.development'],
       isGlobal: true,
+      load: [configuration],
     }),
     TimeModule,
+    ConfigModule,
   ],
   controllers: [AppController],
   providers: [AppService],

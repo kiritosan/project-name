@@ -23,7 +23,12 @@ export class TimeController {
   }
 
   @Get('config')
-  findAllConfig(): object {
-    return this.timeService.printConfig();
+  findAllConfig(): string {
+    return this.timeService.printDBUser();
+  }
+
+  @Get('configDB')
+  findAllConfigDB(): string {
+    return this.timeService.printDB();
   }
 }
