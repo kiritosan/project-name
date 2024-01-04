@@ -31,8 +31,7 @@ export class ExportMessageMiddleware implements NestMiddleware {
     }
 ${reqJsonString}
 ${resJsonString}
-${next.toString()}
-    `;
+`;
 
     // Write the log message to a text file
     fs.appendFileSync('request_logs.txt', logMessage + '\n');
