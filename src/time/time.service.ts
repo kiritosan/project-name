@@ -12,4 +12,8 @@ export class TimeService {
   printDB() {
     return this.configService.get<string>('db');
   }
+
+  get currentTime() {
+    return new Date().toLocaleTimeString(); // 获取当前时间并转换为本地时间
+  }
 }

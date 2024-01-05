@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 // import { DevtoolsModule } from '@nestjs/devtools-integration';
 // import { TimeController } from './time/time.controller';
 import { ExportMessageMiddleware } from './export-message/export-message.middleware';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { TimeModule } from './time/time.module';
 import { ConfigModule } from './config/config.module';
 import configuration from 'config/configuration';
@@ -14,7 +14,7 @@ import configuration from 'config/configuration';
     // DevtoolsModule.register({
     //   http: process.env.NODE_ENV !== 'production',
     // }),
-    ConfigModule.forRoot({
+    NestConfigModule.forRoot({
       envFilePath: ['.env.development.local', '.env.development'],
       isGlobal: true,
       load: [configuration],

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService as NestConfigService } from '@nestjs/config';
 
-interface DatabaseConfig {
+export interface DatabaseConfig {
   host: string;
   port: number;
 }

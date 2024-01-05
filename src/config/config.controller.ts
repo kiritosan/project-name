@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { ConfigService } from './config.service';
+import { ConfigService, DatabaseConfig } from './config.service';
 
 @Controller('config')
 export class ConfigController {
@@ -11,7 +11,7 @@ export class ConfigController {
   }
 
   @Get('configDB')
-  findAllConfigDB(): string {
+  findAllConfigDB(): DatabaseConfig {
     return this.configService.printDB();
   }
 }

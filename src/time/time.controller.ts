@@ -12,6 +12,11 @@ export class TimeController {
     return new Date().toString();
   }
 
+  @Get('time')
+  getCurrentTime(): string {
+    return this.timeService.currentTime;
+  }
+
   @Get('obj')
   findAllObj(@Req() request: Request): object {
     return { a: 1 };
