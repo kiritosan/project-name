@@ -11,6 +11,8 @@ import configuration from 'config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TodoModule } from './todo/todo.module';
 import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
+import { PhotoModule } from './photo/photo.module';
 
 @Module({
   imports: [
@@ -31,12 +33,13 @@ import { UsersModule } from './users/users.module';
       username: 'test',
       password: 'test',
       database: 'test',
-      entities: [],
+      entities: [User],
       // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
       synchronize: true,
     }),
     TodoModule,
     UsersModule,
+    PhotoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
