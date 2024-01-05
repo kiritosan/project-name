@@ -1,5 +1,14 @@
 import { Photo } from 'src/photo/entities/photo.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+  VersionColumn,
+  PrimaryColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -17,4 +26,13 @@ export class User {
 
   //   @OneToMany((type) => Photo, (photo) => photo.user)
   //   photos: Photo[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @VersionColumn({ default: 1 })
+  version: number;
 }
