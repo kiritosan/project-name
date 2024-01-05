@@ -13,6 +13,7 @@ import { TodoModule } from './todo/todo.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { PhotoModule } from './photo/photo.module';
+import { NotificationModule } from './notification/notification.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { PhotoModule } from './photo/photo.module';
     TodoModule,
     UsersModule,
     PhotoModule,
+    NotificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
