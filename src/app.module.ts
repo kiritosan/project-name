@@ -10,6 +10,7 @@ import { ConfigModule } from './config/config.module';
 import configuration from 'config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TodoModule } from './todo/todo.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { TodoModule } from './todo/todo.module';
       synchronize: true,
     }),
     TodoModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
