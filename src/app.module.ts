@@ -8,6 +8,7 @@ import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { TimeModule } from './time/time.module';
 import { ConfigModule } from './config/config.module';
 import configuration from 'config/configuration';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -21,6 +22,17 @@ import configuration from 'config/configuration';
     }),
     TimeModule,
     ConfigModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'test',
+      password: 'test',
+      database: 'test',
+      entities: [],
+      // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
+      synchronize: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
