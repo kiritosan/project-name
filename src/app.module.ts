@@ -33,7 +33,9 @@ import { PhotoModule } from './photo/photo.module';
       username: 'test',
       password: 'test',
       database: 'test',
-      entities: [User],
+      // With that option specified, every entity registered through the forFeature() method will be automatically added to the entities array of the configuration object.
+      autoLoadEntities: true,
+      // entities: [User],
       // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
       synchronize: true,
     }),
