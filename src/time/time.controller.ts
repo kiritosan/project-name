@@ -1,5 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common';
-import * as fs from 'fs';
+import { Controller, Get } from '@nestjs/common';
 import { TimeService } from './time.service';
 
 @Controller('time')

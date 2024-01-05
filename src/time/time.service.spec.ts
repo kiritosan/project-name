@@ -1,11 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TimeService } from './time.service';
+import { ConfigModule } from 'src/config/config.module';
 
 describe('TimeService', () => {
   let service: TimeService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [ConfigModule], // 如果有其他模块的依赖，请在这里添加
       providers: [TimeService],
     }).compile();
 

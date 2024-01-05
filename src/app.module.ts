@@ -9,6 +9,7 @@ import { TimeModule } from './time/time.module';
 import { ConfigModule } from './config/config.module';
 import configuration from 'config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
       synchronize: true,
     }),
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
