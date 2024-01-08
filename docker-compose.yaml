@@ -13,8 +13,11 @@ services:
       - MYSQL_USER=${DATABASE_USER}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
 
-      - MYSQL_ALLOW_EMPTY_PASSWORD=true
-      - MYSQL_RANDOM_ROOT_PASSWORD=false
+      # - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      # - MYSQL_RANDOM_ROOT_PASSWORD=false
+    ports:
+      - 3306:3306
+      - 33060:33060
   # proxy:
   #   image: nginx
   #   volumes:
