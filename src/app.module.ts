@@ -14,6 +14,10 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { PhotoModule } from './photo/photo.module';
 import { NotificationModule } from './notification/notification.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
+import { GraphqlRequestModule } from './graphql-request/graphql-request.module';
 
 @Module({
   imports: [
@@ -44,6 +48,19 @@ import { NotificationModule } from './notification/notification.module';
     UsersModule,
     PhotoModule,
     NotificationModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      // Schema first
+      // typePaths: ['./**/*.graphql'],
+      // definitions: {
+      //   path: join(process.cwd(), 'src/graphql.ts'),
+      // },
+
+      // code first
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      sortSchema: true,
+    }),
+    GraphqlRequestModule,
   ],
   controllers: [AppController],
   providers: [AppService],
