@@ -13,8 +13,10 @@ export class UsersService {
     private dataSource: DataSource,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
-    return this.usersRepository.create(createUserDto);
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const newUser = this.usersRepository.create(createUserDto);
+
+    return await this.usersRepository.save(newUser);
   }
 
   async createMany(users: User[]) {
