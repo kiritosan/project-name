@@ -4,12 +4,10 @@ import {
   Body,
   HttpCode,
   HttpStatus,
-  UseGuards,
   Get,
   Request,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
 import { Public } from 'src/common/decorators/public/public.decorator';
 
 @Controller('auth')
