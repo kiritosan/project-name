@@ -18,6 +18,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { GraphqlRequestModule } from './graphql-request/graphql-request.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -61,6 +62,7 @@ import { GraphqlRequestModule } from './graphql-request/graphql-request.module';
       sortSchema: true,
     }),
     GraphqlRequestModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -10,6 +10,6 @@ import { UserSubscriber } from './user.subscriber';
   controllers: [UsersController],
   providers: [UsersService, UserSubscriber],
   // Now if we import UsersModule in UserHttpModule, we can use @InjectRepository(User) in the providers of the latter module.
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, UsersService],
 })
 export class UsersModule {}

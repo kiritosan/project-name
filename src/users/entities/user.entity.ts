@@ -16,10 +16,10 @@ export class User {
   id: string;
 
   @Column()
-  firstName: string;
+  username: string;
 
   @Column()
-  lastName: string;
+  password: string;
 
   @Column({ default: true })
   isActive: boolean;
@@ -32,7 +32,4 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt: Date;
-
-  @VersionColumn({ default: 1 })
-  version: number;
 }
