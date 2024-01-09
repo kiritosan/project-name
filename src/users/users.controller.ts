@@ -13,6 +13,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Observable, interval, map } from 'rxjs';
+import { Public } from 'src/common/decorators/public/public.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -23,6 +24,7 @@ export class UsersController {
     return this.usersService.create(createUserDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.usersService.findAll();
