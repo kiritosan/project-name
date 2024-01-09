@@ -9,7 +9,10 @@ export class GraphqlRequestResolver {
   constructor(private readonly graphqlRequestService: GraphqlRequestService) {}
 
   @Mutation(() => GraphqlRequest)
-  createGraphqlRequest(@Args('createGraphqlRequestInput') createGraphqlRequestInput: CreateGraphqlRequestInput) {
+  createGraphqlRequest(
+    @Args('createGraphqlRequestInput')
+    createGraphqlRequestInput: CreateGraphqlRequestInput,
+  ) {
     return this.graphqlRequestService.create(createGraphqlRequestInput);
   }
 
@@ -24,8 +27,14 @@ export class GraphqlRequestResolver {
   }
 
   @Mutation(() => GraphqlRequest)
-  updateGraphqlRequest(@Args('updateGraphqlRequestInput') updateGraphqlRequestInput: UpdateGraphqlRequestInput) {
-    return this.graphqlRequestService.update(updateGraphqlRequestInput.id, updateGraphqlRequestInput);
+  updateGraphqlRequest(
+    @Args('updateGraphqlRequestInput')
+    updateGraphqlRequestInput: UpdateGraphqlRequestInput,
+  ) {
+    return this.graphqlRequestService.update(
+      updateGraphqlRequestInput.id,
+      updateGraphqlRequestInput,
+    );
   }
 
   @Mutation(() => GraphqlRequest)
