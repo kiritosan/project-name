@@ -25,9 +25,8 @@ export class User {
   //   @OneToMany((type) => Photo, (photo) => photo.user)
   //   photos: Photo[];
 
-  // TODO: why not work?
-  // @OneToMany(() => Post, (post) => post.user)
-  // posts: Post[];
+  @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
 
   @CreateDateColumn()
   createdAt: Date;
