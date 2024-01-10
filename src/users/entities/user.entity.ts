@@ -1,4 +1,4 @@
-import { Photo } from 'src/photo/entities/photo.entity';
+import { Post } from 'src/posts/entities/post.entity';
 import {
   Entity,
   Column,
@@ -6,8 +6,6 @@ import {
   OneToMany,
   CreateDateColumn,
   UpdateDateColumn,
-  VersionColumn,
-  PrimaryColumn,
 } from 'typeorm';
 
 @Entity()
@@ -26,6 +24,10 @@ export class User {
 
   //   @OneToMany((type) => Photo, (photo) => photo.user)
   //   photos: Photo[];
+
+  // TODO: why not work?
+  // @OneToMany(() => Post, (post) => post.user)
+  posts: Post[];
 
   @CreateDateColumn()
   createdAt: Date;
