@@ -1,6 +1,13 @@
 import { User } from 'src/users/entities/user.entity';
-import { Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
+@Entity()
 export class Post {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -16,7 +23,7 @@ export class Post {
   //   onDelete: 'CASCADE',
   // })
 
-  @ManyToOne(() => User)
-  @JoinColumn()
-  user: User;
+  // @ManyToOne(() => User)
+  // @JoinColumn()
+  // user: User;
 }
