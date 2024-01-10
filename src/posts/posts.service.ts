@@ -33,11 +33,25 @@ export class PostsService {
     return `This action returns a #${id} post`;
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: string, updatePostDto: UpdatePostDto) {
+    const post = await this.postsRepository.findOne({
+      where: { id },
+    });
+    if (!post) {
+      // 处理帖子不存在的情况
+      return null;
+    }
+
+    const updatedPost = {
+      ...post,
+      ...updatePostDto,
+    };
+
+    await this.postsRepository.save(updatedPost);
+    return updatedPost;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} post`;
   }
 }
