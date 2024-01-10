@@ -33,4 +33,9 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column({
+    default: 'regular',
+  })
+  role: string;
 }

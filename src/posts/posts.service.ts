@@ -29,8 +29,8 @@ export class PostsService {
     return this.postsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: string) {
+    return await this.postsRepository.findOneBy({ id });
   }
 
   async update(id: string, updatePostDto: UpdatePostDto) {
