@@ -23,8 +23,8 @@ export class PostsService {
     return await this.postsRepository.save(newPost);
   }
 
-  findAll() {
-    return `This action returns all posts`;
+  findAll(): Promise<Post[]> {
+    return this.postsRepository.find();
   }
 
   findOne(id: number) {

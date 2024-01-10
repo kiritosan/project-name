@@ -27,7 +27,7 @@ export class User {
 
   // TODO: why not work?
   // @OneToMany(() => Post, (post) => post.user)
-  posts: Post[];
+  // posts: Post[];
 
   @CreateDateColumn()
   createdAt: Date;

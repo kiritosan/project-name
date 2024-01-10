@@ -23,11 +23,6 @@ export class PostsController {
   @Post()
   async create(@Req() req, @Body() createPostDto: CreatePostDto) {
     const user = await this.usersService.findOne(req.user.username); // 检查用户是否存在
-    console.log(
-      '🚀 ~ file: posts.controller.ts:30 ~ PostsController ~ create ~ user:',
-      user,
-    );
-    debugger;
     if (user) {
       createPostDto.user = user;
       await this.postsService.create(createPostDto);

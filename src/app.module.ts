@@ -20,6 +20,7 @@ import { join } from 'path';
 import { GraphqlRequestModule } from './graphql-request/graphql-request.module';
 import { AuthModule } from './auth/auth.module';
 import { PostsModule } from './posts/posts.module';
+import { Post } from './posts/entities/post.entity';
 
 @Module({
   imports: [
