@@ -8,11 +8,14 @@ import {
   Delete,
   Req,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { UsersService } from 'src/users/users.service';
+import { Roles } from 'src/common/decorators/roles/roles.decorator';
+import { RolesGuard } from 'src/users/guard/roles.guard';
 
 @Controller('posts')
 export class PostsController {
@@ -38,6 +41,8 @@ export class PostsController {
     return this.postsService.findOne(id);
   }
 
+  @Roles('admin', 'regular')
+  @UseGuards(RolesGuard)
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(id, updatePostDto);
