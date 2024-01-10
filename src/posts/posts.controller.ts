@@ -22,12 +22,9 @@ export class PostsController {
 
   @Post()
   async create(@Req() req, @Body() createPostDto: CreatePostDto) {
-    const user = await this.usersService.findOne(req.user.username); // 检查用户是否存在
-    if (user) {
-      createPostDto.user = user;
-      await this.postsService.create(createPostDto);
-      return { code: 200, message: '创建帖子成功' };
-    }
+    return await this.postsService.create(req.user.username, createPostDto);
+
+    // return { code: 200, message: '创建帖子成功' };
   }
 
   @Get()
